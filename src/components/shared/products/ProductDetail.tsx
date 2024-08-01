@@ -2,7 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Product } from "@/type";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { useCart } from "@/store/cart.store";
 const ProductDetail = ({ href, id, imageAlt, imageSrc, name, price }: Product) => {
+  const { add } = useCart();
   return (
     <Card key={id} className="overflow-hidden group hover:scale-105 transition-all">
       {/* image */}
@@ -10,6 +12,7 @@ const ProductDetail = ({ href, id, imageAlt, imageSrc, name, price }: Product) =
         <img
           alt={imageAlt}
           src={imageSrc}
+          loading="lazy"
           className="h-full aspect-square w-full object-cover rounded-md object-center "
         />
       </CardHeader>
@@ -17,7 +20,10 @@ const ProductDetail = ({ href, id, imageAlt, imageSrc, name, price }: Product) =
       <CardContent className="mt-1 space-y-1 ">
         <h3 className=" text-muted-foreground">{name}</h3>
         <p className="text-lg font-medium text-accent-foreground">${price}</p>
-        <Button variant="outline">
+        <Button
+          variant="outline"
+          onClick={() => add({ id, price, href, imageAlt, imageSrc, name })}
+        >
           <Link to={href}>Add to cart</Link>
         </Button>
       </CardContent>
