@@ -13,7 +13,7 @@ const Porducts = () => {
     <>
       {/* filter */}
       <div className="flex items-center justify-between  p-2 rounded-md mb-5">
-        <h4>Mövcüd elanlar (255)</h4>
+        <h4>Mövcüd elanlar ({products.length})</h4>
         <Select>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Sorting" />
