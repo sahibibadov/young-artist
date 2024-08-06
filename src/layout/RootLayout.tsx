@@ -6,7 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 export default function RootLayout() {
   return (
     <>
-      <Toaster position="top-right" />
+      <Toaster />
       <Navbar />
       <AnimatedOutlet />
       <Footer />
