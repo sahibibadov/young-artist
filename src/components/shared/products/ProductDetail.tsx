@@ -18,7 +18,12 @@ const ProductDetail = ({ href, id, imageAlt, imageSrc, name, price }: Product) =
       </CardHeader>
       {/* card content */}
       <CardContent className="mt-1 space-y-1 ">
-        <h3 className=" text-muted-foreground">{name}</h3>
+        <Link to={`/product/${id}`}>
+          <h3 className=" text-muted-foreground hover:underline hover:underline-offset-2">
+            {name}
+          </h3>
+        </Link>
+
         <p className="text-lg font-medium text-accent-foreground">${price}</p>
         <Button
           variant="outline"

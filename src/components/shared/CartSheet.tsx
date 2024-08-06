@@ -13,7 +13,7 @@ const CartSheet = () => {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger className="relative">
         <ShoppingCart />
-        <span className="absolute -top-1 -right-1 border border-foreground bg-background rounded-full h-4 px-1 text-sm flex items-center justify-center">
+        <span className="absolute -top-1 -right-3   rounded-full h-4 px-1 text-sm flex items-center justify-center">
           {cartCount}
         </span>
       </SheetTrigger>

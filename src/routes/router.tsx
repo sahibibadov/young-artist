@@ -9,6 +9,7 @@ import Authlayout from "@/layout/AuthLayout";
 import Login from "@/pages/auth/Login";
 import Register from "@/pages/auth/Register";
 import Cart from "@/pages/root/Cart";
+import ProductDetailPage from "@/pages/root/ProductDetailPage";
 
 const router: Router = createBrowserRouter([
   // root layout
@@ -19,6 +20,10 @@ const router: Router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/product/:id",
+        element: <ProductDetailPage />,
       },
       {
         path: "/about",

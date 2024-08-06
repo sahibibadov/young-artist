@@ -36,7 +36,7 @@ const Navbar = () => {
                   {link.name}
                   {isActive && (
                     <motion.span
-                      className="absolute h-0.5 left-0 bottom-0 w-full bg-foreground"
+                      className="absolute h-0.5 left-0 -bottom-0.5 w-full bg-foreground"
                       layoutId="nav-item"
                       transition={{
                         duration: 0.3,
@@ -57,7 +57,7 @@ const Navbar = () => {
             <Button asChild>
               <Link to="/login">Login</Link>
             </Button>
-            <Button asChild variant="outline">
+            <Button asChild variant="outline" className="bg-transparent">
               <Link to="/register">Register</Link>
             </Button>
           </div>
