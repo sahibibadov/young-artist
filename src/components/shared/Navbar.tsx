@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className="container flex items-center justify-between h-16">
         {/* logo */}
         <Link to="/" className="font-bold text-3xl font-serif">
-          Logo
+          Young Artist Hub
         </Link>
 
         {/* navitems */}

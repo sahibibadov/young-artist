@@ -1,6 +1,6 @@
 import PageNotFound from "@/pages/PageNotFound.tsx";
 import { Router } from "@remix-run/router";
-import Home from "@/pages/root/Home";
+import Home from "@/pages/root/Home/Home";
 import Contact from "@/pages/root/Contact";
 import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "@/layout/RootLayout.tsx";

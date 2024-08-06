@@ -7,12 +7,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import './products.scss';
 
 const Porducts = () => {
   return (
     <>
       {/* filter */}
-      <div className="flex items-center justify-between  p-2 rounded-md mb-5">
+      <div className="filter-box flex items-center justify-between  p-2  mb-5 mt-5">
         <h4>Mövcüd elanlar ({products.length})</h4>
         <Select>
           <SelectTrigger className="w-[180px]">
