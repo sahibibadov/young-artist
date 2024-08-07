@@ -14,7 +14,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     background-color: rgba(102, 99, 99, 0.571);
     z-index: 5;
   }
@@ -22,8 +22,8 @@
     position: absolute;
     z-index: 10;
     color: $text-color;
-    h1{
-        margin-bottom: 10px;
+    h1 {
+      margin-bottom: 10px;
     }
   }
 }

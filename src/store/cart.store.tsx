@@ -1,7 +1,7 @@
 import { Product } from "@/type";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-
+import { toast } from "sonner";
 interface CartItem extends Product {
   quantity: number;
 }
@@ -31,10 +31,14 @@ export const useCart = create<CartStore>()(
           );
 
           set({ cart: updatedCart, totalPrice: newTotalPrice });
-
+          toast.success("product elave edildi", {
+            duration: 2000,
+          });
           // toast mesaji
         } else {
-          // toast mesaji
+          toast.warning("prdouct movcuddur", {
+            duration: 2000,
+          });
         }
       },
       remove: (id: number) => {
@@ -47,6 +51,9 @@ export const useCart = create<CartStore>()(
 
         // toast mesaji
         set({ cart: updatedCart, totalPrice: newTotalPrice });
+        toast.error("Products silindi", {
+          duration: 2000,
+        });
       },
       removeAll: () => set({ cart: [], totalPrice: 0 }),
 
