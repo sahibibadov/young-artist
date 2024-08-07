@@ -1,76 +1,136 @@
-import PageNotFound from "@/pages/PageNotFound.tsx";
-import { Router } from "@remix-run/router";
-import Home from "@/pages/root/Home/Home";
-import Contact from "@/pages/root/Contact";
+/* eslint-disable react-refresh/only-export-components */
+import { Suspense, lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import RootLayout from "@/layout/RootLayout.tsx";
-import About from "@/pages/root/About";
-import Authlayout from "@/layout/AuthLayout";
-import Login from "@/pages/auth/Login";
-import Register from "@/pages/auth/Register";
-import Cart from "@/pages/root/Cart";
-import ProductDetailPage from "@/pages/root/ProductDetailPage";
-import FavoritePage from "@/pages/root/FavoritePage";
-import RootBoundary from "@/components/shared/ErrorElement";
+import { Router } from "@remix-run/router";
+import Loading from "@/components/shared/Loading"; // Yükleme bileşenini import edin
+
+// Error boundary bileşeni
+const RootBoundary = lazy(() => import("@/components/shared/ErrorElement"));
+
+// Layout bileşenleri
+const Authlayout = lazy(() => import("@/layout/AuthLayout"));
+const RootLayout = lazy(() => import("@/layout/RootLayout"));
+
+// Sayfalar
+const HomePage = lazy(() => import("@/pages/root/Home/Home"));
+const ContactPage = lazy(() => import("@/pages/root/Contact"));
+const CartPage = lazy(() => import("@/pages/root/Cart"));
+const AboutPage = lazy(() => import("@/pages/root/About"));
+const PageNotFound = lazy(() => import("@/pages/PageNotFound"));
+const FavoritePage = lazy(() => import("@/pages/root/FavoritePage"));
+const ProductDetailPage = lazy(() => import("@/pages/root/ProductDetailPage"));
+const LoginPage = lazy(() => import("@/pages/auth/Login"));
+const RegisterPage = lazy(() => import("@/pages/auth/Register"));
 
 const router: Router = createBrowserRouter([
-  // root layout
+  // Root layout
   {
     path: "/",
-    element: <RootLayout />,
-    errorElement: <RootBoundary />,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <RootLayout />
+      </Suspense>
+    ),
+    errorElement: (
+      <Suspense fallback={<Loading />}>
+        <RootBoundary />
+      </Suspense>
+    ),
     children: [
       {
         index: true,
-        element: <Home />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <HomePage />
+          </Suspense>
+        ),
       },
       {
         path: "/product/:id",
-        element: <ProductDetailPage />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <ProductDetailPage />
+          </Suspense>
+        ),
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <AboutPage />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
-        element: <Contact />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <ContactPage />
+          </Suspense>
+        ),
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <CartPage />
+          </Suspense>
+        ),
       },
       {
         path: "/favorite",
-        element: <FavoritePage />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <FavoritePage />
+          </Suspense>
+        ),
       },
     ],
   },
-
-  // auth layout
+  // Auth layout
   {
-    element: <Authlayout />,
-
-    errorElement: <RootBoundary />,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <Authlayout />
+      </Suspense>
+    ),
+    errorElement: (
+      <Suspense fallback={<Loading />}>
+        <RootBoundary />
+      </Suspense>
+    ),
     children: [
       {
         path: "/login",
-        element: <Login />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <LoginPage />
+          </Suspense>
+        ),
       },
       {
         path: "/register",
-        element: <Register />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <RegisterPage />
+          </Suspense>
+        ),
       },
     ],
   },
-  // admin layout
-
-  // 404 page sehifesi
+  // 404 sayfası
   {
     path: "*",
-
-    errorElement: <RootBoundary />,
-    element: <PageNotFound />,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <PageNotFound />
+      </Suspense>
+    ),
+    errorElement: (
+      <Suspense fallback={<Loading />}>
+        <RootBoundary />
+      </Suspense>
+    ),
   },
 ]);
 
