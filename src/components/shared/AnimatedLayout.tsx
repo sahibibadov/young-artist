@@ -23,7 +23,7 @@ const createVariants = (direction: string, distance: number): Record<string, Var
 const AnimatedLayout = ({
   children,
   direction = "bottom",
-  distance = 20,
+  distance = 0,
   duration = 0.4,
   delay = 0.4,
   className,
