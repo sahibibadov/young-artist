@@ -3,6 +3,7 @@ import { Product } from "@/type";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useCart } from "@/store/cart.store";
+import FavoriteIcon from "../FavoriteIcon";
 const ProductDetail = ({ href, id, imageAlt, imageSrc, name, price }: Product) => {
   const { add } = useCart();
   return (
@@ -31,6 +32,10 @@ const ProductDetail = ({ href, id, imageAlt, imageSrc, name, price }: Product) =
         >
           <Link to={href}>Add to cart</Link>
         </Button>
+        <FavoriteIcon
+          product={{ href, id, imageAlt, imageSrc, name, price }}
+          className="absolute top-3 right-4"
+        />
       </CardContent>
     </Card>
   );

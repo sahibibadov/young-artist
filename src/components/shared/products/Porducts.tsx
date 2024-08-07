@@ -5,7 +5,7 @@ import "./products.scss";
 import FilterSelect from "../FilterSelect";
 import { useMemo, useState } from "react";
 import { useFilterStore } from "@/store/filter.store";
-import BlurFade from "../BLurFade";
+import AnimatedReveal from "../AnimationComponent";
 
 const Porducts = () => {
   const [products] = useState(apiProducts);
@@ -32,9 +32,9 @@ const Porducts = () => {
       {/* filterProducts */}
       <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
         {filterProducts.map((product, i) => (
-          <BlurFade key={product.id} delay={0.25 + i * 0.05} inView>
+          <AnimatedReveal key={product.id} delay={0.25 + i * 0.09} blur="6px">
             <ProductDetail {...product} />
-          </BlurFade>
+          </AnimatedReveal>
         ))}
       </div>
     </>

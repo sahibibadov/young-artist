@@ -10,12 +10,15 @@ import Login from "@/pages/auth/Login";
 import Register from "@/pages/auth/Register";
 import Cart from "@/pages/root/Cart";
 import ProductDetailPage from "@/pages/root/ProductDetailPage";
+import FavoritePage from "@/pages/root/FavoritePage";
+import RootBoundary from "@/components/shared/ErrorElement";
 
 const router: Router = createBrowserRouter([
   // root layout
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <RootBoundary />,
     children: [
       {
         index: true,
@@ -37,12 +40,18 @@ const router: Router = createBrowserRouter([
         path: "/cart",
         element: <Cart />,
       },
+      {
+        path: "/favorite",
+        element: <FavoritePage />,
+      },
     ],
   },
 
   // auth layout
   {
     element: <Authlayout />,
+
+    errorElement: <RootBoundary />,
     children: [
       {
         path: "/login",
@@ -59,6 +68,8 @@ const router: Router = createBrowserRouter([
   // 404 page sehifesi
   {
     path: "*",
+
+    errorElement: <RootBoundary />,
     element: <PageNotFound />,
   },
 ]);
