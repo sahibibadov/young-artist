@@ -1,6 +1,13 @@
 import AnimatedLayout from "@/components/shared/AnimatedLayout";
+import { useFavoriteStore } from "@/store/favorite.store";
 
 const FavoritePage = () => {
-  return <AnimatedLayout>FavoritePage</AnimatedLayout>;
+  const { favorites } = useFavoriteStore();
+  return (
+    <AnimatedLayout>
+      FavoritePage
+      <pre className="bg-zinc-100 ">{JSON.stringify(favorites, null, 2)}</pre>
+    </AnimatedLayout>
+  );
 };
 export default FavoritePage;
