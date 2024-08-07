@@ -15,6 +15,10 @@ export const navlinks = [
     name: "Cart",
     path: "/cart",
   },
+  {
+    name: "Favorite",
+    path: "/favorite",
+  },
 ];
 
 export const products = [

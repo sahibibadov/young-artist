@@ -10,6 +10,7 @@ import Login from "@/pages/auth/Login";
 import Register from "@/pages/auth/Register";
 import Cart from "@/pages/root/Cart";
 import ProductDetailPage from "@/pages/root/ProductDetailPage";
+import FavoritePage from "@/pages/root/FavoritePage";
 
 const router: Router = createBrowserRouter([
   // root layout
@@ -36,6 +37,10 @@ const router: Router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/favorite",
+        element: <FavoritePage />,
       },
     ],
   },

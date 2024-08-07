@@ -2,19 +2,19 @@ import { Link, NavLink } from "react-router-dom";
 import { navlinks } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Heart } from "lucide-react";
 import { motion } from "framer-motion";
 import MobileNav from "./MobileNav";
 import CartSheet from "./CartSheet";
-import BlurFade from "./BLurFade";
+import AnimatedReveal from "./AnimationComponent";
+import FavoriteButton from "./FavoriteButton";
 
 const Navbar = () => {
   return (
     <header className="sticky top-0  backdrop-blur bg-background/60 border-b z-50">
-      <BlurFade yOffset={0} delay={0.3} inView>
+      <AnimatedReveal distance={0} delay={0.3} blur="6px">
         <div className="container flex items-center justify-between h-16">
           {/* logo */}
-          <Link to="/" className="font-bold text-3xl font-serif">
+          <Link to="/" className="font-bold text-xl md:text-3xl font-serif">
             Young Artist Hub
           </Link>
 
@@ -53,7 +53,7 @@ const Navbar = () => {
           </nav>
 
           {/* login register */}
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-3 items-center">
             {/* auth button */}
             <div className="mr-2  hidden md:flex  gap-2">
               <Button asChild>
@@ -65,16 +65,14 @@ const Navbar = () => {
             </div>
 
             {/* shoping button */}
-            <Link to="#">
-              <Heart />
-            </Link>
+            <FavoriteButton />
             <CartSheet />
 
             {/* mobile nav */}
             <MobileNav />
           </div>
         </div>
-      </BlurFade>
+      </AnimatedReveal>
     </header>
   );
 };
