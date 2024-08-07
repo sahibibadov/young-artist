@@ -1,4 +1,6 @@
+import AnimatedLayout from "@/components/shared/AnimatedLayout";
+
 const FavoritePage = () => {
-  return <div>FavoritePage</div>;
+  return <AnimatedLayout>FavoritePage</AnimatedLayout>;
 };
 export default FavoritePage;
