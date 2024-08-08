@@ -6,9 +6,10 @@ import { cn } from "@/lib/utils";
 interface FavoriteIconProps {
   product?: Product;
   className?: string;
+  size?: number;
 }
 
-const FavoriteIcon: React.FC<FavoriteIconProps> = ({ product, className }) => {
+const FavoriteIcon: React.FC<FavoriteIconProps> = ({ product, className, size = 24 }) => {
   const { favorites, add, remove } = useFavoriteStore();
   const isFavorite = product ? favorites.some((item) => item.id === product.id) : false;
 
@@ -23,17 +24,11 @@ const FavoriteIcon: React.FC<FavoriteIconProps> = ({ product, className }) => {
   };
 
   return (
-    <div
-      onClick={handleClick}
-      className={cn(
-        "rounded-full border p-1.5 flex items-center justify-center cursor-pointer",
-        className
-      )}
-    >
+    <div onClick={handleClick} className={cn("cursor-pointer text-zinc-500", className)}>
       {isFavorite ? (
-        <Heart className="fill-black stroke-black size-6" />
+        <Heart size={size} className="fill-current stroke-current  text-current" />
       ) : (
-        <Heart className=" size-6 stroke-black" />
+        <Heart size={size} className=" stroke-current text-current" />
       )}
     </div>
   );

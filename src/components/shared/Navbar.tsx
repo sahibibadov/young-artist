@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { navlinks } from "@/lib/constants";
+import { navlinks } from "@/constants";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -10,7 +10,7 @@ import FavoriteButton from "./FavoriteButton";
 
 const Navbar = () => {
   return (
-    <header className="sticky top-0  backdrop-blur bg-background/60 border-b z-50">
+    <header className="fixed top-0 w-full  backdrop-blur bg-background/60 border-b z-50">
       <AnimatedReveal distance={0} delay={0.3} blur="6px">
         <div className="container flex items-center justify-between h-16">
           {/* logo */}

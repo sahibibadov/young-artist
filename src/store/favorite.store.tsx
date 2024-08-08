@@ -40,7 +40,7 @@ export const useFavoriteStore = create<FavoriteStore>()(
         const updatedFavorites = favorites.filter((item) => item.id !== id);
 
         set({ favorites: updatedFavorites });
-        toast.error("Product removed from favorites", {
+        toast.success("Product removed from favorites", {
           duration: 2000,
         });
       },

@@ -51,7 +51,7 @@ export const useCart = create<CartStore>()(
 
         // toast mesaji
         set({ cart: updatedCart, totalPrice: newTotalPrice });
-        toast.error("Products silindi", {
+        toast.success("Products silindi", {
           duration: 2000,
         });
       },

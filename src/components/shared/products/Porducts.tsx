@@ -1,4 +1,4 @@
-import { products as apiProducts } from "@/lib/constants";
+import { products as apiProducts } from "@/constants";
 import ProductDetail from "./ProductDetail";
 
 import "./products.scss";
