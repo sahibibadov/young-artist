@@ -1,7 +1,7 @@
 import { StarFilledIcon } from "@radix-ui/react-icons";
 import { ArrowLeft, Star } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
-import { products as apiProducts } from "@/lib/constants";
+import { products as apiProducts } from "@/constants";
 import { useEffect, useState } from "react";
 import { Product } from "@/type";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -24,7 +24,7 @@ const ProductDetailPage = () => {
   }, [id, products]);
 
   return (
-    <AnimatedLayout className="text-gray-600 body-font overflow-hidden container my-10">
+    <AnimatedLayout className="text-gray-600 body-font overflow-hidden container mt-24">
       <Link
         to="/"
         className={buttonVariants({ variant: "outline", size: "icon", className: "mb-4" })}
@@ -76,7 +76,7 @@ const ProductDetailPage = () => {
                 >
                   Sebete ekle
                 </Button>
-                <FavoriteIcon product={product} />
+                <FavoriteIcon product={product} size={28} className="text-black" />
               </div>
             </div>
           </AnimatedReveal>

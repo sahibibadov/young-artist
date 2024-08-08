@@ -2,7 +2,7 @@ import AnimatedLayout from "@/components/shared/AnimatedLayout";
 
 const About = () => {
   return (
-    <AnimatedLayout>
+    <AnimatedLayout className="mt-16">
       <div>About</div>
     </AnimatedLayout>
   );
