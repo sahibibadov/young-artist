@@ -24,7 +24,11 @@ const FavoriteIcon: React.FC<FavoriteIconProps> = ({ product, className, size = 
   };
 
   return (
-    <div onClick={handleClick} className={cn("cursor-pointer text-zinc-500", className)}>
+    <div
+      data-cursor="pointer"
+      onClick={handleClick}
+      className={cn("cursor-pointer text-zinc-500", className)}
+    >
       {isFavorite ? (
         <Heart size={size} className="fill-current stroke-current  text-current" />
       ) : (
