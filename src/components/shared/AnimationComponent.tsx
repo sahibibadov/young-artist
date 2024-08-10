@@ -14,6 +14,7 @@ interface AnimatedRevealProps {
   enterAnimation?: string;
   exitAnimation?: string;
   variant?: Variants;
+  layout?: boolean;
 }
 
 export default function AnimatedReveal({
@@ -29,6 +30,7 @@ export default function AnimatedReveal({
   enterAnimation = "visible",
   exitAnimation = "hidden",
   variant,
+  layout = false,
 }: AnimatedRevealProps) {
   const ref = useRef(null);
   const inView = useInView(ref, { once, margin: `${inViewMargin}px` });
@@ -64,7 +66,13 @@ export default function AnimatedReveal({
 
   return (
     <AnimatePresence>
-      <motion.div ref={ref} className={className} variants={combinedVariants} {...animationProps}>
+      <motion.div
+        layout={layout}
+        ref={ref}
+        className={className}
+        variants={combinedVariants}
+        {...animationProps}
+      >
         {children}
       </motion.div>
     </AnimatePresence>

@@ -1,15 +1,16 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useCart } from "@/store/cart.store";
 import { Product } from "@/type";
-
-import { ShoppingCart, Trash2 } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { useState } from "react";
 import AnimatedReveal from "@/components/shared/AnimationComponent";
+import CartSheetProduct from "./CartSheetProduct";
+
 const CartSheet = () => {
-  const cart = useCart((state) => state.cart);
-  const remove = useCart((state) => state.remove);
+  const { cart, totalPrice } = useCart();
   const cartCount = cart.length;
   const [open, setOpen] = useState(false);
+
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger className="relative">
@@ -18,31 +19,31 @@ const CartSheet = () => {
           {cartCount}
         </span>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="overflow-y-auto">
         <SheetHeader>
-          <SheetTitle>Cart</SheetTitle>
+          <SheetTitle>Sebet</SheetTitle>
         </SheetHeader>
-
         {cart.length > 0 ? (
-          <div className="flex flex-col gap-2 mt-4">
+          <div className="mt-4 divide-y flex flex-col pb-20">
             {cart.map((item: Product, i) => (
-              <AnimatedReveal key={item.id} delay={0.25 + i * 0.05} blur="6px">
-                <figure key={item.id} className="border p-2 flex items-center rounded-md ">
-                  <h3>{item.name}</h3>
-                  <strong>${item.price}</strong>
-
-                  <Trash2
-                    size={20}
-                    className="text-destructive ml-auto cursor-pointer"
-                    onClick={() => remove(item.id)}
-                  />
-                </figure>
+              <AnimatedReveal
+                layout
+                key={item.id}
+                delay={0.25 + i * 0.05}
+                blur="6px"
+                className="py-3"
+              >
+                <CartSheetProduct product={item} />
               </AnimatedReveal>
             ))}
           </div>
         ) : (
           <h3 className="text-2xl font-bold">The basket is empty</h3>
         )}
+        <div className="fixed right-0 h-24  bottom-0   w-3/4 sm:max-w-sm  bg-background border-t flex flex-col gap-1 px-6 py-2">
+          <h3 className="text-xl font-bold">Toplam deyer: ${totalPrice}</h3>
+          <span className=" text-muted-foreground">doplam say: {cart.length}</span>
+        </div>
       </SheetContent>
     </Sheet>
   );
