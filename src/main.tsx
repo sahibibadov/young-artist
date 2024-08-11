@@ -8,10 +8,10 @@ import Cursor from "@/components/shared/cursor-framer-motion";
 import Loading from "./components/shared/Loading";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    {/* <SmoothProvider> */}
-    <Cursor />
-    <RouterProvider router={router} fallbackElement={<Loading />} />
-    {/* </SmoothProvider> */}
-  </React.StrictMode>
+   <React.StrictMode>
+      {/* <SmoothProvider> */}
+      <Cursor />
+      <RouterProvider router={router} fallbackElement={<Loading />} />
+      {/* </SmoothProvider> */}
+   </React.StrictMode>,
 );
