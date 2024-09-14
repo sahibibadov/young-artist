@@ -12,7 +12,7 @@ const Authlayout = lazy(() => import("@/layout/AuthLayout"));
 const RootLayout = lazy(() => import("@/layout/RootLayout"));
 
 // Sayfalar
-const HomePage = lazy(() => import("@/pages/root/Home/Home"));
+const HomePage = lazy(() => import("@/pages/root/Home"));
 const ContactPage = lazy(() => import("@/pages/root/Contact"));
 const CartPage = lazy(() => import("@/pages/root/Cart"));
 const AboutPage = lazy(() => import("@/pages/root/About"));

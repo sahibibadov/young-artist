@@ -1,7 +1,6 @@
 import { products as apiProducts } from "@/constants";
 import ProductDetail from "./ProductDetail";
 
-import "./products.scss";
 import FilterSelect from "../FilterSelect";
 import { useMemo, useState } from "react";
 import { useFilterStore } from "@/store/filter.store";
@@ -25,7 +24,7 @@ const Porducts = () => {
    return (
       <>
          {/* filter */}
-         <div className="filter-box mb-5 mt-5 flex items-center justify-between p-2">
+         <div className="mb-5 mt-5 flex items-center justify-between p-2">
             <h4>Mövcüd elanlar ({filterProducts.length})</h4>
             <FilterSelect />
          </div>
